@@ -1,0 +1,34 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Courses</title>
+</head>
+<body>
+
+    <h1>Welcome to Online Courses</h1>
+
+    <h2>Available Courses</h2>
+
+    {% for course in courses %}
+        <div>
+            <h3>{{ course.name }}</h3>
+            <p>{{ course.description }}</p>
+
+            <a href="{% url 'course_details' course.id %}">
+                View Course
+            </a>
+        </div>
+    {% empty %}
+        <p>No courses are available yet.</p>
+    {% endfor %}
+
+    <p>
+        <a href="{% url 'admin:index' %}">Administrator Login</a>
+    </p>
+
+</body>
+</html>
+```
